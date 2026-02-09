@@ -34,25 +34,20 @@ export default function DownloadSection() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-2xl mx-auto">
-          {/* App Store */}
-          <a
-            href="https://apps.apple.com/app/jewelkhata"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-4 w-full sm:w-auto bg-dark-card border border-primary/30 rounded-xl px-6 py-4 hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group min-w-[280px] sm:min-w-[260px]"
+          {/* App Store - Coming soon */}
+          <div
+            className="flex items-center gap-4 w-full sm:w-auto bg-dark-card/80 border border-primary/20 rounded-xl px-6 py-4 opacity-90 cursor-not-allowed min-w-[280px] sm:min-w-[260px]"
+            aria-disabled="true"
           >
-            <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gray-900 flex items-center justify-center text-white group-hover:text-primary-light transition-colors">
+            <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-gray-900 flex items-center justify-center text-gray-500">
               <AppleIcon className="w-9 h-9" />
             </div>
             <div className="text-left flex-1 min-w-0">
               <p className="text-xs text-gray-400 uppercase tracking-wide mb-0.5">Download on the</p>
               <p className="font-semibold text-white text-lg leading-tight">App Store</p>
-              <p className="text-xs text-gray-400 mt-1">iPhone & iPad</p>
+              <p className="text-xs text-primary/90 mt-1 font-medium">Coming soon</p>
             </div>
-            <svg className="w-5 h-5 text-gray-500 group-hover:text-primary-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </a>
+          </div>
 
           {/* Google Play */}
           <a

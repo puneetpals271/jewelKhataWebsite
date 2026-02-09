@@ -48,11 +48,6 @@ export default function Footer() {
                   Customization
                 </a>
               </li>
-              <li>
-                <a href="#pricing" className="hover:text-primary-light transition">
-                  Pricing
-                </a>
-              </li>
             </ul>
           </div>
 
