@@ -1,23 +1,21 @@
 import type { MetadataRoute } from 'next';
 
-const siteUrl = 'https://jewelkhata.com';
-
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: siteUrl,
+      url: '/',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: `${siteUrl}/privacy-policy`,
+      url: '/privacy-policy',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,
     },
     {
-      url: `${siteUrl}/terms-of-service`,
+      url: '/terms-of-service',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.5,

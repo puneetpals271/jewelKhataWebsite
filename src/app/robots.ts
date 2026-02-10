@@ -1,13 +1,11 @@
 import type { MetadataRoute } from 'next';
 
-const siteUrl = 'https://jewelkhata.com';
-
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
+    sitemap: 'https://jewelkhata.com/sitemap.xml',
   };
 }
