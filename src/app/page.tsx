@@ -5,9 +5,10 @@ import DownloadSection from '@/components/DownloadSection';
 import Customization from '@/components/Customization';
 import Enterprise from '@/components/Enterprise';
 import ContactForm from '@/components/ContactForm';
-import FAQ, { faqs } from '@/components/FAQ';
+import FAQ from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import { generateFAQSchema } from '@/lib/seo';
+import { faqs } from '@/data/faqs';
 
 export default function Home() {
   const jsonLd = generateFAQSchema(faqs);
