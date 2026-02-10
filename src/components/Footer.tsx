@@ -88,12 +88,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-light transition">
-                  Terms of Service
+                <a href="/privacy-policy" className="hover:text-primary-light transition">
+                  Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary-light transition">
+                <a href="/terms-of-service" className="hover:text-primary-light transition">
                   Cookie Policy
                 </a>
               </li>

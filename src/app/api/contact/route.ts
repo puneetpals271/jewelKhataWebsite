@@ -1,4 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
@@ -23,8 +26,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Here you can integrate with your email service
-    // For now, we'll just log the data and return success
+    // Log the submission
     console.log('Contact Form Submission:', {
       name,
       email,
@@ -34,40 +36,76 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
     });
 
-    // TODO: Integrate with email service (SendGrid, Mailgun, etc.)
-    // Or save to database
-    // Example with nodemailer (requires SMTP configuration):
-    /*
-    const nodemailer = require('nodemailer');
-    const transporter = nodemailer.createTransport({
-      service: process.env.SMTP_SERVICE,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASSWORD,
-      },
-    });
+    try {
+      // Send confirmation email to user
+      const userEmailResult = await resend.emails.send({
+        from: 'JewelKhata <onboarding@resend.dev>',
+        to: email,
+        subject: 'We received your message - JewelKhata',
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #333;">Thank You for Contacting JewelKhata</h2>
+            <p>Hi ${name},</p>
+            <p>We have received your message and appreciate you reaching out to us. Our team will review your inquiry and get back to you as soon as possible.</p>
+            <div style="background-color: #f5f5f5; padding: 15px; border-radius: 8px; margin: 20px 0;">
+              <p><strong>Your Message:</strong></p>
+              <p style="white-space: pre-wrap;">${message}</p>
+            </div>
+            <p>If you have any urgent matters, please feel free to call us at: <strong>+1 (214) 291-6136</strong></p>
+            <p>Best regards,<br><strong>The JewelKhata Team</strong></p>
+            <hr style="border: none; border-top: 1px solid #ddd; margin-top: 30px;">
+            <p style="color: #999; font-size: 12px;">JewelKhata - Smart Jewelry Management System</p>
+          </div>
+        `,
+      });
 
-    await transporter.sendMail({
-      from: process.env.FROM_EMAIL,
-      to: process.env.CONTACT_EMAIL,
-      replyTo: email,
-      subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Company:</strong> ${company || 'Not provided'}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    });
-    */
+      if (userEmailResult.error) {
+        console.error('User confirmation email error:', userEmailResult.error);
+      }
+    } catch (userEmailError) {
+      console.error('User email exception:', userEmailError);
+    }
+
+    // Send notification email to admin
+    try {
+      await resend.emails.send({
+        from: 'JewelKhata <onboarding@resend.dev>',
+        to: 'puneetpal9162@gmail.com',
+        replyTo: email,
+        subject: `New Contact Form Submission from ${name}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #333;">New Contact Form Submission</h2>
+            <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px;">
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Phone:</strong> ${phone}</p>
+              <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+              <p><strong>Message:</strong></p>
+              <p style="white-space: pre-wrap;">${message}</p>
+              <p style="color: #999; font-size: 12px; margin-top: 20px;">
+                Submitted at: ${new Date().toLocaleString()}
+              </p>
+            </div>
+          </div>
+        `,
+      });
+    } catch (adminEmailError) {
+      console.error('Admin notification email error:', adminEmailError);
+    }
 
     return NextResponse.json(
-      { message: 'Message received. We will get back to you soon.' },
+      { message: 'Thank you! We will get back to you soon.' },
       { status: 200 }
     );
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return NextResponse.json(
+      { error: 'Failed to process request' },
+      { status: 500 }
+    );
+  }
+}
   } catch (error) {
     console.error('Contact form error:', error);
     return NextResponse.json(

@@ -140,8 +140,9 @@ export default function ContactForm() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 border border-primary/20 bg-dark-bg/50 text-white rounded-lg focus:outline-none focus:border-primary/80 focus:ring-2 focus:ring-primary/30 placeholder-gray-500"
-                  placeholder="+1 (555) 000-0000"
+                  placeholder="+1 (214) 291-6136"
                 />
+
               </div>
               <div>
                 <label
@@ -206,12 +207,12 @@ export default function ContactForm() {
             <div>
               <div className="text-2xl mb-2">📧</div>
               <p className="text-sm text-gray-400">Email</p>
-              <p className="font-semibold text-primary-light">support@jewelkhata.com</p>
+              <p className="font-semibold text-primary-light">support@jewelkhata.app</p>
             </div>
             <div>
               <div className="text-2xl mb-2">📱</div>
               <p className="text-sm text-gray-400">Phone</p>
-              <p className="font-semibold text-primary-light">+1 (555) 123-4567</p>
+              <p className="font-semibold text-primary-light">+1 (214) 291-6136</p>
             </div>
             <div>
               <div className="text-2xl mb-2">⏰</div>
