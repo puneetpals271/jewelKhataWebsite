@@ -51,7 +51,6 @@ export async function POST(request: NextRequest) {
               <p><strong>Your Message:</strong></p>
               <p style="white-space: pre-wrap;">${message}</p>
             </div>
-            <p>If you have any urgent matters, please feel free to call us at: <strong>+1 (214) 291-6136</strong></p>
             <p>Best regards,<br><strong>The JewelKhata Team</strong></p>
             <hr style="border: none; border-top: 1px solid #ddd; margin-top: 30px;">
             <p style="color: #999; font-size: 12px;">JewelKhata - Smart Jewelry Management System</p>
