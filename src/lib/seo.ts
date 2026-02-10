@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'JewelKhata',
-  url: 'https://jewelkhata.com',
+  url: 'https://jewelkhata.app',
   description:
     'Jewellery management app for retailers & traders. Works 100% offline, no cloud, no server. Encrypted records, Decoy PIN (Safe Mode), one-time payment, lifetime use. iOS & Android.',
   keywords: [
@@ -23,7 +23,7 @@ export const siteConfig = {
   ],
   author: {
     name: 'JewelKhata',
-    url: 'https://jewelkhata.com',
+    url: 'https://jewelkhata.app',
   },
   creator: 'JewelKhata',
   locale: 'en_IN',

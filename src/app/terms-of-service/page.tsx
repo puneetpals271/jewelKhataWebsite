@@ -181,7 +181,7 @@ export default function TermsOfService() {
                 <div className="bg-dark-card rounded-lg p-6 border border-primary/20">
                   <p className="text-gray-300 mb-2"><strong>Email:</strong> support@jewelkhata.com</p>
                   <p className="text-gray-300 mb-2"><strong>Legal:</strong> legal@jewelkhata.com</p>
-                  <p className="text-gray-300"><strong>Website:</strong> www.jewelkhata.com</p>
+                  <p className="text-gray-300"><strong>Website:</strong> www.jewelkhata.app</p>
                 </div>
               </section>
             </div>

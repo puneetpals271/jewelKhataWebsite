@@ -157,7 +157,7 @@ export default function PrivacyPolicy() {
                 <div className="bg-dark-card rounded-lg p-6 border border-primary/20">
                   <p className="text-gray-300 mb-2"><strong>Email:</strong> privacy@jewelkhata.com</p>
                   <p className="text-gray-300 mb-2"><strong>Support:</strong> support@jewelkhata.com</p>
-                  <p className="text-gray-300"><strong>Website:</strong> www.jewelkhata.com</p>
+                  <p className="text-gray-300"><strong>Website:</strong> www.jewelkhata.app</p>
                 </div>
               </section>
             </div>
