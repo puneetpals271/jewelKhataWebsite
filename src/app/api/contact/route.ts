@@ -106,11 +106,3 @@ export async function POST(request: NextRequest) {
     );
   }
 }
-  } catch (error) {
-    console.error('Contact form error:', error);
-    return NextResponse.json(
-      { error: 'Failed to process request' },
-      { status: 500 }
-    );
-  }
-}
