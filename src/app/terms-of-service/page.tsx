@@ -1,14 +1,29 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { generatePageMetadata, generateArticleSchema } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Terms of Service | JewelKhata',
-  description: 'Terms of Service for JewelKhata - Smart Jewelry Management System',
-};
+export const metadata = generatePageMetadata({
+  title: 'Terms of Service',
+  description: 'Terms of Service for JewelKhata - Jewellery Management App. Review our usage terms, license agreement, and user responsibilities.',
+  path: '/terms-of-service',
+  noIndex: false,
+});
 
 export default function TermsOfService() {
+  const jsonLd = generateArticleSchema({
+    title: 'Terms of Service - JewelKhata',
+    description: 'Terms of Service for JewelKhata - Jewellery Management App',
+    datePublished: '2026-02-09',
+    dateModified: '2026-02-09',
+    path: '/terms-of-service',
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main className="min-h-screen bg-dark-bg">
         <div className="container mx-auto px-4 py-16 md:py-24">

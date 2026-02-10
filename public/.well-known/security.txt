@@ -1,0 +1,9 @@
+# If you've found a security issue, please contact us responsibly
+
+Contact: mailto:security@jewelkhata.com
+Expires: 2027-02-09T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://jewelkhata.com/.well-known/security.txt
+Policy: https://jewelkhata.com/security-policy
+
+# Thank you for helping keep JewelKhata and our users safe!

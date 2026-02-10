@@ -1,7 +1,12 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
+import {
+  siteConfig,
+  generateOrganizationSchema,
+  generateWebApplicationSchema,
+} from '@/lib/seo';
 
-const siteUrl = 'https://jewelkhata.com';
+const siteUrl = siteConfig.url;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -9,35 +14,28 @@ export const metadata: Metadata = {
     default: 'JewelKhata – Jewellery Management App | Offline, Encrypted, Made for Jewellers',
     template: '%s | JewelKhata',
   },
-  description:
-    'Jewellery management app for retailers & traders. Works 100% offline, no cloud, no server. Encrypted records, Decoy PIN (Safe Mode), one-time payment, lifetime use. iOS & Android.',
-  keywords: [
-    'jewellery management',
-    'jewelry inventory app',
-    'jewellery business software',
-    'offline jewellery app',
-    'jewellery ledger',
-    'ring size tracking',
-    'jewellery retailer app',
-    'encrypted jewellery records',
-    'Decoy PIN',
-    'Safe Mode jewellery',
-    'JewelKhata',
-  ],
-  authors: [{ name: 'JewelKhata', url: siteUrl }],
-  creator: 'JewelKhata',
-  publisher: 'JewelKhata',
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [siteConfig.author],
+  creator: siteConfig.creator,
+  publisher: siteConfig.creator,
   formatDetection: { email: false, address: false, telephone: false },
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     type: 'website',
-    locale: 'en_IN',
+    locale: siteConfig.locale,
     url: siteUrl,
-    siteName: 'JewelKhata',
+    siteName: siteConfig.name,
     title: 'JewelKhata – Jewellery Management App | Offline, Encrypted',
     description:
       'Works 100% offline. No cloud, no server. Encrypted records, Decoy PIN (Safe Mode). One-time payment, lifetime use. Made for jewellers.',
@@ -75,23 +73,23 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@graph': [
+      generateOrganizationSchema(),
+      generateWebApplicationSchema(),
       {
-        '@type': 'Organization',
-        name: 'JewelKhata',
+        '@type': 'WebSite',
+        '@id': `${siteUrl}/#website`,
         url: siteUrl,
-        logo: `${siteUrl}/logo.png`,
-        description:
-          'Jewellery management app for retailers and traders. Works 100% offline with encrypted records and Decoy PIN (Safe Mode).',
-      },
-      {
-        '@type': 'WebApplication',
-        name: 'JewelKhata',
-        applicationCategory: 'BusinessApplication',
-        operatingSystem: 'iOS, Android',
-        offers: { '@type': 'Offer', price: '0', priceCurrency: 'INR' },
-        description:
-          'Jewellery management app. Works 100% offline, no cloud, no server. Encrypted records, Decoy PIN (Safe Mode). One-time payment, lifetime use. Made for jewellers.',
-        url: siteUrl,
+        name: siteConfig.name,
+        description: siteConfig.description,
+        publisher: {
+          '@id': `${siteUrl}/#organization`,
+        },
+        inLanguage: 'en-IN',
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${siteUrl}/?s={search_term_string}`,
+          'query-input': 'required name=search_term_string',
+        },
       },
     ],
   };
@@ -101,6 +99,12 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <link rel="author" href="/humans.txt" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="JewelKhata" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

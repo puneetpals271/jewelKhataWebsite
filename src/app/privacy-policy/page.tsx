@@ -1,14 +1,29 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { generatePageMetadata, generateArticleSchema } from '@/lib/seo';
 
-export const metadata = {
-  title: 'Privacy Policy | JewelKhata',
-  description: 'Privacy Policy for JewelKhata - Smart Jewelry Management System',
-};
+export const metadata = generatePageMetadata({
+  title: 'Privacy Policy',
+  description: 'Privacy Policy for JewelKhata - Jewellery Management App. Learn how we protect your data with offline storage, encryption, and no cloud uploads.',
+  path: '/privacy-policy',
+  noIndex: false,
+});
 
 export default function PrivacyPolicy() {
+  const jsonLd = generateArticleSchema({
+    title: 'Privacy Policy - JewelKhata',
+    description: 'Privacy Policy for JewelKhata - Jewellery Management App',
+    datePublished: '2026-02-09',
+    dateModified: '2026-02-09',
+    path: '/privacy-policy',
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main className="min-h-screen bg-dark-bg">
         <div className="container mx-auto px-4 py-16 md:py-24">

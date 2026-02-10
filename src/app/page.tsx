@@ -5,12 +5,19 @@ import DownloadSection from '@/components/DownloadSection';
 import Customization from '@/components/Customization';
 import Enterprise from '@/components/Enterprise';
 import ContactForm from '@/components/ContactForm';
-import FAQ from '@/components/FAQ';
+import FAQ, { faqs } from '@/components/FAQ';
 import Footer from '@/components/Footer';
+import { generateFAQSchema } from '@/lib/seo';
 
 export default function Home() {
+  const jsonLd = generateFAQSchema(faqs);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main>
         <HeroSection />

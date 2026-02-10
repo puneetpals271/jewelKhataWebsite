@@ -1,0 +1,22 @@
+{
+  "name": "JewelKhata - Jewellery Management App",
+  "short_name": "JewelKhata",
+  "description": "Offline jewellery management app for retailers and traders. Encrypted records, Decoy PIN, made for jewellers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "finance"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/"
+}

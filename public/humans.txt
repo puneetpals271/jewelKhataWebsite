@@ -1,0 +1,13 @@
+/* TEAM */
+Website: JewelKhata Team
+Site: https://jewelkhata.com
+Location: India
+
+/* SITE */
+Last update: 2026/02/09
+Standards: HTML5, CSS3, ES2022
+Components: Next.js, React, TypeScript, Tailwind CSS
+Software: VS Code, Node.js
+
+/* THANKS */
+Thanks to all our users and supporters who help us build the best jewellery management solution.
