@@ -51,7 +51,7 @@ export default function DownloadSection() {
 
           {/* Google Play */}
           <a
-            href="https://play.google.com/store/apps/details?id=com.jewelkhata"
+            href="https://play.google.com/store/apps/details?id=com.jewelkhata.app"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 w-full sm:w-auto bg-dark-card border border-primary/30 rounded-xl px-6 py-4 hover:border-primary hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 group min-w-[280px] sm:min-w-[260px]"
