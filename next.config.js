@@ -17,45 +17,13 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Redirect www to non-www (https)
+      // Redirect www to non-www
       {
         source: '/:path*',
         has: [
           {
             type: 'host',
             value: 'www.jewelkhata.app',
-          },
-        ],
-        destination: 'https://jewelkhata.app/:path*',
-        permanent: true,
-      },
-      // Redirect http to https (for non-www)
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'jewelkhata.app',
-          },
-          {
-            type: 'protocol',
-            value: 'http',
-          },
-        ],
-        destination: 'https://jewelkhata.app/:path*',
-        permanent: true,
-      },
-      // Redirect http to https (for www)
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.jewelkhata.app',
-          },
-          {
-            type: 'protocol',
-            value: 'http',
           },
         ],
         destination: 'https://jewelkhata.app/:path*',
