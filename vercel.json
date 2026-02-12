@@ -7,24 +7,6 @@
         { "type": "host", "value": "www.jewelkhata.app" }
       ],
       "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "destination": "https://jewelkhata.app/$1",
-      "has": [
-        { "type": "host", "value": "jewelkhata.app" },
-        { "type": "protocol", "value": "http" }
-      ],
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "destination": "https://jewelkhata.app/$1",
-      "has": [
-        { "type": "host", "value": "www.jewelkhata.app" },
-        { "type": "protocol", "value": "http" }
-      ],
-      "permanent": true
     }
   ]
 }
