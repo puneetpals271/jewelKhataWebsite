@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const path = require('path');
 
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -13,6 +14,54 @@ const nextConfig = {
   reactStrictMode: true,
   turbopack: {
     root: path.resolve(__dirname),
+  },
+  async redirects() {
+    return [
+      // Redirect www to non-www (https)
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.jewelkhata.app',
+          },
+        ],
+        destination: 'https://jewelkhata.app/:path*',
+        permanent: true,
+      },
+      // Redirect http to https (for non-www)
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'jewelkhata.app',
+          },
+          {
+            type: 'protocol',
+            value: 'http',
+          },
+        ],
+        destination: 'https://jewelkhata.app/:path*',
+        permanent: true,
+      },
+      // Redirect http to https (for www)
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.jewelkhata.app',
+          },
+          {
+            type: 'protocol',
+            value: 'http',
+          },
+        ],
+        destination: 'https://jewelkhata.app/:path*',
+        permanent: true,
+      },
+    ];
   },
 };
 
