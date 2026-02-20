@@ -57,6 +57,7 @@ export default function RecoverDataPage() {
                     enabled &quot;Backup to cloud&quot; (e.g. <code className="bg-dark-card px-1 rounded">AB12CD34</code>).
                     It uses only letters A–Z and digits 2–9.
                   </li>
+                  <li>If you saved your <strong>email or phone</strong> with the backup, we can look up your recovery code if you forgot it.</li>
                   <li>A way to receive the backup (email or secure link).</li>
                 </ul>
               </section>
@@ -65,13 +66,12 @@ export default function RecoverDataPage() {
                 <h2 className="text-2xl font-bold text-primary-light mb-4">How to recover</h2>
                 <ol className="list-decimal list-inside text-gray-300 space-y-2">
                   <li>
-                    Contact our support team with your recovery code and the email or phone number
-                    where we can reach you.
+                    Contact our support team with your <strong>recovery code</strong> (if you have it), or the
+                    <strong> email or phone</strong> you gave when you enabled cloud backup (if you forgot the code).
                   </li>
-                  <li>We will look up your backup using the code and verify your identity.</li>
+                  <li>We will look up your backup and verify your identity.</li>
                   <li>
-                    We will send you a secure link or the backup file and short instructions to
-                    restore it in JewelKhata.
+                    We will send you a secure link or the backup file. In the app: Settings → Restore data → &quot;Recover from cloud&quot; and enter your recovery code to restore.
                   </li>
                 </ol>
               </section>
