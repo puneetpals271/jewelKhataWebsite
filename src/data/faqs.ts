@@ -25,6 +25,11 @@ export const faqs = [
       'Records are encrypted and unreadable without your PIN. Secure Mode includes Decoy PIN (Safe Mode): real PIN shows real records, decoy PIN shows safe or empty records. No cloud, no server—your data stays on your device.',
   },
   {
+    question: 'How do I recover my data after using Decoy PIN?',
+    answer:
+      'If you turned on "Backup to cloud" when setting up your Decoy PIN and later used Decoy PIN (so your real data was removed from the device), you can get your data back. Keep the 8-character recovery code the app showed you when you enabled cloud backup. Contact us at support@jewelkhata.app or via the contact form with your recovery code—we will verify and help you restore your data. See our Recover data page for full details.',
+  },
+  {
     question: 'Does JewelKhata work offline?',
     answer:
       'Yes. JewelKhata works 100% offline. No cloud, no server—your data stays on your device. Perfect for jewelry stores with inconsistent or no internet.',

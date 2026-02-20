@@ -61,6 +61,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="/support/recover-data" className="hover:text-primary-light transition">
+                  Recover data (Decoy backup)
+                </a>
+              </li>
+              <li>
                 <a href="#contact" className="hover:text-primary-light transition">
                   Contact
                 </a>
